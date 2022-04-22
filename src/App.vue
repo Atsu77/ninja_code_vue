@@ -1,36 +1,30 @@
 <template>
-  <ul id="app">
-    <li class="hobby-card" v-for="hobby in hobbies" :key="hobby.name">
-      {{ hobby.name }}
-    </li>
-  </ul>
+  <div id="app">
+    <p>{{ greet }}</p>
+    <button @click="alertText" class="alert_btn">Alert!</button>
+  </div>
 </template>
 
 <script>
 export default {
   name: "App",
   data: () => ({
-    hobbies: [
-      { name: "プログラミング" },
-      { name: "スポーツ" },
-      { name: "読書" },
-      { name: "旅行" },
-    ],
   }),
+  methods: {
+    alertText() {
+      alert("Hello World!");
+    }
+  }
 };
 </script>
 
 <style>
-.hobby-card {
-  width: 50%;
-  padding: 1rem;
-  margin: 1rem auto;
-  color: #ffffff;
-  background: #40b983;
-  box-shadow: 2px 2px 4px #ddd;
-  font-weight: bold;
-}
-.hobby-card:hover {
-  opacity: 0.8;
+.alert_btn {
+  background-color: #f00;
+  color: #fff;
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
 }
 </style>
