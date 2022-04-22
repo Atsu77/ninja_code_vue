@@ -1,7 +1,8 @@
 <template>
   <div id="app">
-    <p>{{ greet }}</p>
-    <button @click="reverseText" class="alert_btn">文字が反転するよ</button>
+    <p>{{ count }}</p>
+    <button class="up" @click="countUp">プラス</button>
+    <button class="down" @click="countDown">マイナス</button>
   </div>
 </template>
 
@@ -9,26 +10,37 @@
 export default {
   name: "App",
   data: () => ({
-    greet: "Hello Vue.js!"
+    count: 0
   }),
   methods: {
-    reverseText() {
-      this.greet = this.greet
-        .split("")
-        .reverse()
-        .join("");
+    countUp() {
+      this.count++;
+    },
+    countDown() {
+      this.count--;
     }
   }
 };
 </script>
 
 <style>
-.alert_btn {
-  background-color: #f00;
+p {
+  font-size: 30px;
+  font-weight: bold;
+}
+button {
   color: #fff;
-  padding: 10px;
   border-radius: 5px;
-  border: none;
+  padding: 10px;
   cursor: pointer;
+}
+
+button.up {
+  background: #40b983;
+  border: none;
+}
+button.down {
+  background: red;
+  border: none;
 }
 </style>
