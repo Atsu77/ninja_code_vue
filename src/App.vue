@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    {{ message }}
+    <div v-bind:class="{ active: isActive }">Active!!</div>
   </div>
 </template>
 
@@ -8,13 +8,14 @@
 export default {
   name: "App",
   data: () => ({
-    message: "Hello 忍者Code!"
-  })
+    message: "Hello 忍者Code!",
+    isActive: true,
+  }),
 };
 </script>
 
 <style>
-#app {
+.active {
   font-size: 3rem;
   font-weight: bold;
   text-align: center;
