@@ -1,35 +1,39 @@
 <template>
-  <div id="app">
-    <Sidebar></Sidebar>
-    <Main></Main>
-  </div>
+  <v-app>
+    <v-main>
+      <v-container>
+        <template>
+          <v-carousel height="600">
+            <v-carousel-item
+              v-for="(item, i) in items"
+              :key="i"
+              :src="item.src"
+              reverse-transition="fade-transition"
+              transition="fade-transition"
+            >
+            </v-carousel-item>
+          </v-carousel>
+        </template>
+      </v-container>
+    </v-main>
+  </v-app>
 </template>
 
 <script>
-import Sidebar from "@/components/Sidebar.vue";
-import Main from "@/components/Main.vue";
-
 export default {
-  components: {
-    Sidebar,
-    Main,
-  },
+  name: "App",
+
+  components: {},
+
+  data: () => ({
+    items: [
+      {
+        src: "./assets/download.png",
+      },
+      {
+        src: "./assets/logo.png",
+      },
+    ],
+  }),
 };
 </script>
-
-<style scoped>
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  display: flex;
-  min-height: 100vh;
-}
-</style>
