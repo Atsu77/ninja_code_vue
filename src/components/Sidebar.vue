@@ -1,19 +1,26 @@
 <template>
   <div class="sidebar-container">
     <h1>Sidebar</h1>
+    <NavList />
   </div>
 </template>
 
 <script>
-export default {};
+import NavList from "@/components/NavList.vue";
+export default {
+  components: {
+    NavList,
+  },
+};
 </script>
 
 <style scoped>
 .sidebar-container {
   width: 20%;
-  background-color: #fff;
+  background: #fff;
 }
 .sidebar-container h1 {
-  padding-top: 50px;
+  padding-top: 20px;
+  color: #40b983;
 }
 </style>

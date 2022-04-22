@@ -1,11 +1,21 @@
 <template>
   <div class="main-container">
-    <h1>Main</h1>
+    <router-view>
+      <List />
+      <Sample />
+    </router-view>
   </div>
 </template>
 
 <script>
-export default {};
+import List from "@/components/List";
+import Sample from "@/components/Sample";
+export default {
+  components: {
+    List,
+    Sample,
+  },
+};
 </script>
 
 <style scoped>
