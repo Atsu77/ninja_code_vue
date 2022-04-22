@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <p>{{ greet }}</p>
-    <button @click="alertText" class="alert_btn">Alert!</button>
+    <button @click="reverseText" class="alert_btn">文字が反転するよ</button>
   </div>
 </template>
 
@@ -9,10 +9,14 @@
 export default {
   name: "App",
   data: () => ({
+    greet: "Hello Vue.js!"
   }),
   methods: {
-    alertText() {
-      alert("Hello World!");
+    reverseText() {
+      this.greet = this.greet
+        .split("")
+        .reverse()
+        .join("");
     }
   }
 };
