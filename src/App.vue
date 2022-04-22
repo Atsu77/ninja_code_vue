@@ -1,24 +1,38 @@
 <template>
   <div id="app">
-    <p>{{ checked }}</p>
-    <input type="checkbox" v-model="checked" />
-    <p>{{ selectedValues }}</p>
-    <label for="one">1</label>
-    <input type="checkbox" id="one" v-model="selectedValues" />
-    <label for="two">2</label>
-    <input type="checkbox" id="two" value="2" v-model="selectedValues" />
-    <label for="three">3</label>
-    <input type="checkbox" id="three" value="3" v-model="selectedValues" />
+    <div>
+      <ul>
+        <li v-for="job in jobs" :key="job.key">
+          {{ job.name }}
+        </li>
+      </ul>
+    </div>
+    <form @submit.prevent="addJob">
+      <input type="text" v-model="newJobName" />
+      <input type="submit" value="ジョブを完了する" />
+    </form>
   </div>
 </template>
 
 <script>
+/* eslint-disable prettier/prettier */
 export default {
   name: "App",
   data: () => ({
-    checked: true,
-    selectedValues: [],
+    jobs: [],
+    newJobName: "",
   }),
+  methods: {
+    addJob() {
+      this.jobs = [
+        ...this.jobs,
+        {
+          name: this.newJobName,
+        },
+      ];
+      this.newJobName = "";
+    },
+  },
 };
 </script>
 
