@@ -1,8 +1,7 @@
 <template>
   <div id="app">
-    <p>{{ count }}</p>
-    <button class="up" @click="countUp">プラス</button>
-    <button class="down" @click="countDown">マイナス</button>
+    <p>あなたの入力した文字は？ => {{ message }}</p>
+    <input type="text" v-model="message" placeholder="入力を監視しています" />
   </div>
 </template>
 
@@ -10,16 +9,8 @@
 export default {
   name: "App",
   data: () => ({
-    count: 0
+    message: "",
   }),
-  methods: {
-    countUp() {
-      this.count++;
-    },
-    countDown() {
-      this.count--;
-    }
-  }
 };
 </script>
 
