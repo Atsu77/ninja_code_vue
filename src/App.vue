@@ -1,7 +1,14 @@
 <template>
   <div id="app">
-    <p>あなたの入力した文字は？ => {{ message }}</p>
-    <input type="text" v-model="message" placeholder="入力を監視しています" />
+    <p>{{ checked }}</p>
+    <input type="checkbox" v-model="checked" />
+    <p>{{ selectedValues }}</p>
+    <label for="one">1</label>
+    <input type="checkbox" id="one" v-model="selectedValues" />
+    <label for="two">2</label>
+    <input type="checkbox" id="two" value="2" v-model="selectedValues" />
+    <label for="three">3</label>
+    <input type="checkbox" id="three" value="3" v-model="selectedValues" />
   </div>
 </template>
 
@@ -9,7 +16,8 @@
 export default {
   name: "App",
   data: () => ({
-    message: "",
+    checked: true,
+    selectedValues: [],
   }),
 };
 </script>
