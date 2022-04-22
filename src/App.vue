@@ -1,6 +1,11 @@
 <template>
   <div id="app">
-    <div v-bind:class="{ active: isActive }">Active!!</div>
+    <div v-if="show">
+      <p class="text text-success">NinjaCODE 楽しい!!</p>
+    </div>
+    <div v-else>
+      <p class="text text-danger">NinjaCODE 難しい...</p>
+    </div>
   </div>
 </template>
 
@@ -8,18 +13,24 @@
 export default {
   name: "App",
   data: () => ({
-    message: "Hello 忍者Code!",
-    isActive: true,
+    show: false,
   }),
 };
 </script>
 
 <style>
-.active {
-  font-size: 3rem;
-  font-weight: bold;
-  text-align: center;
+.text {
+  font-size: 2rem;
   margin: 30% auto;
-  color: #41ba83;
+  text-align: center;
+  border-bottom: 2px solid #35495e;
+  width: 50%;
+}
+.text-success {
+  color: #00b894;
+}
+
+.text-danger {
+  color: #d63031;
 }
 </style>
