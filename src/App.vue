@@ -1,39 +1,36 @@
 <template>
-  <div id="app" class="text-card">
-    <div v-if="random == 'fun'">
-      <p>楽しい!!</p>
-    </div>
-    <div v-else-if="random == 'lazy'">
-      <p>退屈だ!!</p>
-    </div>
-    <div v-else>
-      <p>どうしよう!!</p>
-    </div>
-  </div>
+  <ul id="app">
+    <li class="hobby-card" v-for="hobby in hobbies" :key="hobby.name">
+      {{ hobby.name }}
+    </li>
+  </ul>
 </template>
 
 <script>
 export default {
   name: "App",
   data: () => ({
-    random: "lazy",
+    hobbies: [
+      { name: "プログラミング" },
+      { name: "スポーツ" },
+      { name: "読書" },
+      { name: "旅行" },
+    ],
   }),
 };
 </script>
 
 <style>
-.text-card {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #40b983;
-  color: #fff;
-}
-
-.text-card p {
-  font-size: 2rem;
+.hobby-card {
+  width: 50%;
+  padding: 1rem;
+  margin: 1rem auto;
+  color: #ffffff;
+  background: #40b983;
+  box-shadow: 2px 2px 4px #ddd;
   font-weight: bold;
+}
+.hobby-card:hover {
+  opacity: 0.8;
 }
 </style>
