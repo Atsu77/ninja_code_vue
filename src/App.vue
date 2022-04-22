@@ -1,59 +1,35 @@
 <template>
   <div id="app">
-    <div>
-      <ul>
-        <li v-for="job in jobs" :key="job.key">
-          {{ job.name }}
-        </li>
-      </ul>
-    </div>
-    <form @submit.prevent="addJob">
-      <input type="text" v-model="newJobName" />
-      <input type="submit" value="ジョブを完了する" />
-    </form>
+    <Sidebar></Sidebar>
+    <Main></Main>
   </div>
 </template>
 
 <script>
-/* eslint-disable prettier/prettier */
+import Sidebar from "@/components/Sidebar.vue";
+import Main from "@/components/Main.vue";
+
 export default {
-  name: "App",
-  data: () => ({
-    jobs: [],
-    newJobName: "",
-  }),
-  methods: {
-    addJob() {
-      this.jobs = [
-        ...this.jobs,
-        {
-          name: this.newJobName,
-        },
-      ];
-      this.newJobName = "";
-    },
+  components: {
+    Sidebar,
+    Main,
   },
 };
 </script>
 
-<style>
-p {
-  font-size: 30px;
-  font-weight: bold;
-}
-button {
-  color: #fff;
-  border-radius: 5px;
-  padding: 10px;
-  cursor: pointer;
+<style scoped>
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-button.up {
-  background: #40b983;
-  border: none;
-}
-button.down {
-  background: red;
-  border: none;
+#app {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  display: flex;
+  min-height: 100vh;
 }
 </style>
