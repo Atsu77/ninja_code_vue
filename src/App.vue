@@ -1,10 +1,13 @@
 <template>
-  <div id="app">
-    <div v-if="show">
-      <p class="text text-success">NinjaCODE 楽しい!!</p>
+  <div id="app" class="text-card">
+    <div v-if="random == 'fun'">
+      <p>楽しい!!</p>
+    </div>
+    <div v-else-if="random == 'lazy'">
+      <p>退屈だ!!</p>
     </div>
     <div v-else>
-      <p class="text text-danger">NinjaCODE 難しい...</p>
+      <p>どうしよう!!</p>
     </div>
   </div>
 </template>
@@ -13,24 +16,24 @@
 export default {
   name: "App",
   data: () => ({
-    show: false,
+    random: "lazy",
   }),
 };
 </script>
 
 <style>
-.text {
-  font-size: 2rem;
-  margin: 30% auto;
-  text-align: center;
-  border-bottom: 2px solid #35495e;
-  width: 50%;
-}
-.text-success {
-  color: #00b894;
+.text-card {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #40b983;
+  color: #fff;
 }
 
-.text-danger {
-  color: #d63031;
+.text-card p {
+  font-size: 2rem;
+  font-weight: bold;
 }
 </style>
